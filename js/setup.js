@@ -57,14 +57,6 @@ for (var i = 0; i < WIZARDS_COUNT; i++) {
   wizards.push(newWizard);
 }
 
-function getCoatColor() {
-  wizardCoat.style.fill = wizardCoatColor.splice(getRandomNumber(0, WIZARD_COAT_COLOR.length));
-}
-
-function getEyesColor() {
-  wizardEyes.style.fill = wizardEyesColor.splice(getRandomNumber(0, WIZARD_EYES_COLOR.length));
-}
-
 function renderWizard(wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
 
