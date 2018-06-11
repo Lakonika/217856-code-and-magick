@@ -48,8 +48,6 @@ userDialog.classList.remove('hidden');
 
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
-var wizardEyes = document.querySelector('.wizard-eyes');
-var wizardCoat = document.querySelector('.wizard-coat');
 
 var wizards = [];
 for (var i = 0; i < WIZARDS_COUNT; i++) {
@@ -79,10 +77,6 @@ function makeNewWizard() {
 var fragment = document.createDocumentFragment();
 for (i = 0; i < WIZARDS_COUNT; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
-}
-
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 function shuffle(array) {
