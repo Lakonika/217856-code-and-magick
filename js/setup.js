@@ -49,9 +49,9 @@ var WIZARD_FIREBALL_COLOR = [
 var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 
-function getRandomNumber(min, max) {
+var getRandomNumber = function (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
-}
+};
 
 var shuffle = function (array) {
   for (i = array.length - 1; i > 0; i--) {
@@ -70,13 +70,12 @@ var wizardEyesColor = shuffle(WIZARD_EYES_COLOR);
 var wizardFireballColor = shuffle(WIZARD_FIREBALL_COLOR);
 
 var userDialog = document.querySelector('.setup');
-userDialog.classList.remove('hidden');
-
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
-var wizardEyes = document.querySelector('.wizard-eyes');
-var wizardCoat = document.querySelector('.wizard-coat');
-var wizardFireball = document.querySelector('.setup-fireball-wrap');
+var wizardSetup = document.querySelector('.setup-player');
+var wizardEyes = wizardSetup.querySelector('.wizard-eyes');
+var wizardCoat = wizardSetup.querySelector('.wizard-coat');
+var wizardFireball = wizardSetup.querySelector('.setup-fireball-wrap');
 
 var makeNewWizard = function () {
   var newMag = {};
@@ -95,15 +94,15 @@ for (var i = 0; i < WIZARDS_COUNT; i++) {
 }
 
 var getFireballColor = function () {
-  wizardFireball.style.background = wizardFireballColor.splice(getRandomNumber(0, WIZARD_FIREBALL_COLOR.length));
+  wizardFireball.style.background = wizardFireballColor[getRandomNumber(0, WIZARD_FIREBALL_COLOR.length - 1)];
 };
 
 var getCoatColor = function () {
-  wizardCoat.style.fill = wizardCoatColor.splice(getRandomNumber(0, WIZARD_COAT_COLOR.length));
+  wizardCoat.style.fill = wizardCoatColor[getRandomNumber(0, WIZARD_COAT_COLOR.length - 1)];
 };
 
 var getEyesColor = function () {
-  wizardEyes.style.fill = wizardEyesColor.splice(getRandomNumber(0, WIZARD_EYES_COLOR.length));
+  wizardEyes.style.fill = wizardEyesColor[getRandomNumber(0, WIZARD_EYES_COLOR.length - 1)];
 };
 
 var renderWizard = function (wizard) {
