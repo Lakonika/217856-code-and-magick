@@ -130,6 +130,11 @@ var setupClose = setup.querySelector('.setup-close');
 var setupUserName = setup.querySelector('.setup-user-name');
 var setupSubmit = setup.querySelector('.setup-submit');
 
+var resetCoord = function () {
+  setup.style.top = '80px';
+  setup.style.left = '50%';
+};
+
 var onPopupEscPress = function (evt) {
   if (evt.keyCode === ESC_KEYCODE && evt.target !== setupUserName) {
     closePopup();
@@ -137,6 +142,7 @@ var onPopupEscPress = function (evt) {
 };
 
 var openPopup = function () {
+  resetCoord();
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
 };
