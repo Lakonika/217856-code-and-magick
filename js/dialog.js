@@ -2,9 +2,9 @@
 (function () {
 
   var setupDialogElement = document.querySelector('.setup');
-  var dialogHandler = setupDialogElement.querySelector('.upload');
+  var dialogElement = setupDialogElement.querySelector('.upload');
 
-  dialogHandler.addEventListener('mousedown', function (evt) {
+  dialogElement.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
     var startCoords = {
@@ -41,9 +41,9 @@
       if (dragged) {
         var onClickPreventDefault = function (event) {
           event.preventDefault();
-          dialogHandler.removeEventListener('click', onClickPreventDefault);
+          dialogElement.removeEventListener('click', onClickPreventDefault);
         };
-        dialogHandler.addEventListener('click', onClickPreventDefault);
+        dialogElement.addEventListener('click', onClickPreventDefault);
       }
 
     };
@@ -51,6 +51,5 @@
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
   });
-
 
 })();
